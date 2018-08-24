@@ -1,4 +1,5 @@
 require_relative 'restricted_array.rb'
+require 'pry'
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -37,7 +38,15 @@ end
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  i = 0
+  largest = array[0]
+  until i == length
+    if array[i] > largest
+      largest = array[i]
+    end
+    i += 1
+  end
+  return largest
 end
 
 # Finds and returns the smallest integer value in the array
