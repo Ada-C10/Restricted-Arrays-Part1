@@ -1,4 +1,5 @@
 require_relative 'restricted_array.rb'
+require 'pry'
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -78,7 +79,24 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+
+  lower = 0
+  upper = length - 1
+
+  while upper >= lower
+
+    mid = (lower + upper) / 2
+    mid_value = array[mid]
+
+    if mid_value == value_to_find
+      return true
+    elsif mid_value > value_to_find
+      upper = mid - 1
+    elsif mid_value < value_to_find
+      lower = mid + 1
+    end
+  end
+  return false
 end
 
 # Helper method provided to sort the array in ascending order

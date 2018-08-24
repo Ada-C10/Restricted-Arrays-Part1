@@ -155,7 +155,7 @@ describe "restricted array" do
     search(my_integer_array, size, value_to_find).must_equal true
   end
 
-  xit "binary search method - value exists at the last index in the array" do
+  it "binary search method - value exists at the last index in the array" do
     size = 13
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -166,7 +166,7 @@ describe "restricted array" do
     binary_search(my_integer_array, size, value_to_find).must_equal true
   end
 
-  xit "binary search method - value exists at the middle index in the array" do
+  it "binary search method - value exists at the middle index in the array" do
     size = 15
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -177,7 +177,7 @@ describe "restricted array" do
     binary_search(my_integer_array, size, value_to_find).must_equal true
   end
 
-  xit "binary search method - value does not exist in the array" do
+  it "binary search method - value does not exist in the array" do
     size = 15
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
