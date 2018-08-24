@@ -21,7 +21,6 @@ end
 # Prints each integer values in the array
 def print_array(array)
 
-i = 0
 while array[i]
   puts array[i]
 end
