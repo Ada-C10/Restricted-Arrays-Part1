@@ -36,7 +36,18 @@ end
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  
+  if length == 0
+    return false
+  else
+    index = 0
+    while index < length
+      if array[index] == value_to_find
+        return true
+      end
+      index += 1
+    end
+    return false
+  end
 
   raise NotImplementedError
 end
