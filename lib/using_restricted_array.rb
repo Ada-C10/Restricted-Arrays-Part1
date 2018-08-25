@@ -77,7 +77,17 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  i = 0
+  y = 1
+  (length(array) / 2). times do
+    temp = array[i]
+    array[i] = array[length(array) - y]
+    array[length(array) - y] = temp
+    i += 1
+    y += 1
+  end
+return array
+  # raise NotImplementedError
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
