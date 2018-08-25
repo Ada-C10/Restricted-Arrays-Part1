@@ -28,11 +28,15 @@ end
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
   i = 0
-  while i < length
-    return true if array[i] == value_to_find
-    i += 1
+  if length == 0
+    return nil
+  else
+    while i < length
+      return true if array[i] == value_to_find
+      i += 1
+    end
+    return false
   end
-  return false
 end
 
 # Finds and returns the largest integer value the array
@@ -40,11 +44,15 @@ end
 def find_largest(array, length)
   max = 0
   i = 0
-  while i < length
-    max = array[i] if array[i] >= max
-    i += 1
+  if length == 0
+    return nil
+  else
+    while i < length
+      max = array[i] if array[i] >= max
+      i += 1
+    end
+    return max
   end
-  return max
 end
 
 # Finds and returns the smallest integer value in the array
@@ -52,32 +60,36 @@ end
 def find_smallest(array, length)
   min = array[0]
   i = 0
-  while i < length
-    min = array[i] if array[i] <= min
-    i += 1
+  if length == 0
+    return nil
+  else
+    while i < length
+      min = array[i] if array[i] <= min
+      i += 1
+    end
+    return min
   end
-  return min
 end
 
-# Reverses the values in the integer array in place
+# Reverses the values in the integer array in place (no extra memory used)
 def reverse(array, length)
   i = 0
-  j = 0
-  k = length
-  array_copy = []
+  j = length - 1
 
-  while i < length
-    array_copy[i] = array[i]
-    i += 1
+  if length == 0
+    return nil
+  elsif length == 1
+    return array
+  else
+    while i < j
+      temp = array[i]
+      array[i] = array[j]
+      array[j] = temp
+      i += 1
+      j -= 1
+    end
+    return array
   end
-
-  while j < length / 2
-    array[j] = array_copy[k - 1]
-    array[k - 1] = array_copy[j]
-    j += 1
-    k -= 1
-  end
-  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
