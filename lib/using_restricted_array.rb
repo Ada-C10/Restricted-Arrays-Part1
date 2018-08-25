@@ -55,6 +55,19 @@ end
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
+
+  # assumes array isn't empty
+  index = 1
+  max = array[0]
+  while index < length
+    if array[index] > max
+      max = array[index]
+    end
+    index += 1
+  end
+
+  return max
+
   raise NotImplementedError
 end
 
