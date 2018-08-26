@@ -1,5 +1,7 @@
 require_relative 'restricted_array.rb'
-require 'pry'
+#require 'pry'
+#require 'awesome_print'
+
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -19,7 +21,11 @@ end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  i = 0
+  until array[i] == nil
+    print "#{array[i]} "
+    i += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
@@ -119,3 +125,9 @@ def sort(array, length)
   end
 end
 ## --- END OF METHODS ---
+
+
+##QUICK TEST for print_array - uncomment 'require awesome_print' at the top
+# my_array = RestrictedArray.new(10)
+# print_array(my_array)
+# ap my_array
