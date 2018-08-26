@@ -77,7 +77,21 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  low = 0
+  high = length - 1
+  mid = (high + low) / 2
+  while low <= high
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      high = mid - 1
+      mid = (high + low) / 2
+    elsif array[mid] < value_to_find
+      low = mid + 1
+      mid = (high + low) / 2
+    end
+  end
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
