@@ -1,18 +1,49 @@
 require_relative 'restricted_array.rb'
+require 'pry'
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
 # RestrictedArray cannot be resized.
+# Restricted-Array
+# 1. Create an integer array of default size (i.e. 20) or of the size provided in the parameter.
+#    All integer values are randomly initialized in the range of 1-221.
+# 2. Get the value at a given index using `array[index]` format.
+# 3. Update the value at a given index using `array[index]` format.
+# None of the other methods available in the Ruby Array class are available in the RestrictedArray class.
+#
+# ## Exercise
+# Implement the methods in using_restricted_array.rb. Methods to implement are:
+# - *print_array* - which prints each integer value separated by space on the same line
+# - *reverse* - which reverses the values in the array in place
+# - *search* - which looks for a given integer value in the array. Returns true if found, false otherwise.
+#              Note: do not assume that the array is sorted.
+# - *binary_search* - which looks for a given integer value in the array. Returns true if found, false otherwise.
+#              Note: Assume that the array is sorted in ascending order.
+# - *find_largest* - Finds and returns the largest value element in the integer array.
+# - *find_smallest* - Finds and returns the smallest value element in the integer array.
+
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
-  raise NotImplementedError
+  i = 0
+  while array[i] != nil
+    i += 1
+  end
+  return i
 end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  # Setting iterator to start at 0
+  i = 0
+
+  # While i is < the length of the array
+  while array[i] != nil
+    # Print value if value is an integer
+    print array[i] if array[i].class == Integer
+    i += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
