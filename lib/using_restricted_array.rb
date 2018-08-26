@@ -74,7 +74,7 @@ def find_largest(array, length)
   max = array[0]
   # Compare each value to max
   while i < length
-    # If greater than max, update max 
+    # If greater than max, update max
     if array[i] > max
       max = array[i]
     end
@@ -87,7 +87,24 @@ end
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  # If array is empty return nil
+  if length == 0
+    return nil
+  end
+
+  # Start i at 0
+  i = 0
+  # Start min at first element of array value
+  min = array[0]
+  # Compare each value to min
+  while i < length
+    # If greater than min, update min
+    if array[i] < min
+      min = array[i]
+    end
+    i += 1
+  end
+  return min
 end
 
 # Reverses the values in the integer array in place
