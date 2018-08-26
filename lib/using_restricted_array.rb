@@ -49,14 +49,40 @@ end
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  i = 0
+  while i < length
+    if array[i] == value_to_find
+      return true
+    else
+      return false
+    end
+    i += 1
+  end
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  # If array is empty return nil
+  if length == 0
+    return nil
+  end
+
+  # Start i at 0
+  i = 0
+  # Start max at first element of array value
+  max = array[0]
+  # Compare each value to max
+  while i < length
+    # If greater than max, update max 
+    if array[i] > max
+      max = array[i]
+    end
+    i += 1
+  end
+  return max
 end
+
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
