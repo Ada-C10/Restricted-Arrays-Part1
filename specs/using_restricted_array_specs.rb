@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
+require 'pry'
 
 describe "restricted array" do
   it "length method" do
