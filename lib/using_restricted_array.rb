@@ -7,24 +7,45 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
-  raise NotImplementedError
+  i = 0
+  until array[i] == nil
+    i += 1
+  end
+  return i
 end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  i = 0
+  until array[i] == nil
+    puts array[i]
+    i += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  return false if length == 0
+  i = 0
+  until i == length
+    return true if array[i] == value_to_find
+    i += 1
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  return nil if length == 0
+  i = 0
+  largest = array[0]
+  until i == length
+    largest = array[i] if array[i] > largest
+    i += 1
+  end
+  return largest
 end
 
 # Finds and returns the smallest integer value in the array
