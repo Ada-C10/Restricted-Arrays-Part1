@@ -97,18 +97,14 @@ def reverse(array, length)
 
   while forward_index <= reverse_index
     forward_value = array[forward_index]
-    reverse_value = array[reverse_index]
 
-    array[forward_index] = reverse_value
+    array[forward_index] = array[reverse_index]
     array[reverse_index] = forward_value
 
     forward_index += 1
     reverse_index -= 1
   end
 
-  return # throws an error if I don't return anything?
-
-  raise NotImplementedError
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
