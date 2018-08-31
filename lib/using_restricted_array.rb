@@ -18,7 +18,7 @@ end
 def print_array(array)
   i = 0
   until array[i] == nil
-    puts array[i]
+    print "#{array[i]} "
     i += 1
   end
 end
@@ -51,7 +51,14 @@ end
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  return nil if length == 0
+  i = 0
+  smallest = array[0]
+  until i == length
+    smallest = array[i] if array[i] < smallest
+    i += 1
+  end
+  return smallest
 end
 
 # Reverses the values in the integer array in place
@@ -62,7 +69,20 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  return nil if length == 0
+  low = 0
+  high = length - 1
+  while low < high
+    mid = (low + high) / 2
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      high = mid - 1
+    else # array[mid] < value_to_find
+      low = mid + 1
+    end
+  end
+  return array[low] == value_to_find
 end
 
 # Helper method provided to sort the array in ascending order
