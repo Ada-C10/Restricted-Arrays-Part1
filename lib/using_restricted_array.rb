@@ -31,7 +31,7 @@ def print_array(array)
     end
   end
 
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # For an unsorted array, searches for 'value_to_find'.
