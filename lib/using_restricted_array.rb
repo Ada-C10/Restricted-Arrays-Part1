@@ -1,4 +1,5 @@
 require_relative 'restricted_array.rb'
+require 'pry'
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -7,41 +8,109 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
-  raise NotImplementedError
+  length = 0
+  until array.[](length) == nil
+    length += 1
+  end
+  return length
 end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  length = 0
+  until array.[](length) == nil
+    print array.[](length)
+    length += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  until length == 0
+    if array.[](length) == value_to_find
+      return true
+    end
+    length -= 1
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  largest = array.[](0)
+  count = 0
+  until count == (length)
+    if array.[](count) > largest
+      largest = array.[](count)
+    end
+    count += 1
+  end
+  return largest
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  smallest = array.[](0)
+  count = 0
+  until count == (length)
+    if array.[](count) < smallest
+      smallest = array.[](count)
+    end
+    count += 1
+  end
+  return smallest
 end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  count = 0
+  count2 = length - 1
+  until count == count2
+    a = array.[](count)
+    b = array.[](count2)
+    array.[]=(count, b)
+    array.[]=(count2, a)
+    count += 1
+    count2 -= 1
+    if (count2 - count) == 1
+      a = array.[](count)
+      b = array.[](count2)
+      array.[]=(count, b)
+      array.[]=(count2, a)
+      break
+    end
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  half = (length / 2)
+  a = array.[](0)
+  b = array.[](length - 1)
+
+  if a == value_to_find || b == value_to_find
+    return true
+  end
+
+  while a < b
+    if array.[](half) == value_to_find
+      return true
+    elsif array.[](half) < value_to_find
+      a = array.[](a)
+      b = array.[](half)
+      half = (half / 2)
+    elsif array.[](half) > value_to_find
+      b = array.[](b)
+      a = array.[](half)
+      half = (half / 2)
+    end
+  end
+  
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
