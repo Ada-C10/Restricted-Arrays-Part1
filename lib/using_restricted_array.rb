@@ -88,6 +88,7 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
+
   half = (length / 2)
   a = array.[](0)
   b = array.[](length - 1)
@@ -109,7 +110,7 @@ def binary_search(array, length, value_to_find)
       half = (half / 2)
     end
   end
-  
+
   return false
 end
 
