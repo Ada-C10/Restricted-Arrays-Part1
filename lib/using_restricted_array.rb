@@ -17,13 +17,26 @@ end
 
 # Prints each integer values in the array
 def print_array(array)
-  
+
   raise NotImplementedError
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
+
+  return nil if array[0] == nil
+
+  i = 0
+  while i < length
+    if array[i] == value_to_find
+      return true
+    end
+    i += 1
+  end
+
+  return false
+
   raise NotImplementedError
 end
 
