@@ -1,4 +1,5 @@
 require_relative 'restricted_array.rb'
+require 'pry'
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -17,13 +18,24 @@ end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  index = 0
+  while array[index] != nil
+    index += 1
+    puts array[index]
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  index = 0
+  while index < length
+    if array[index] == value_to_find
+      return true
+    end
+    index += 1
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
