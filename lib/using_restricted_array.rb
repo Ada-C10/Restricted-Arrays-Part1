@@ -52,7 +52,20 @@ end
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  number_of_elements = length(array)
+
+  count = 0
+  max_value = array[count]
+
+  while count < number_of_elements
+    if array[count] > max_value
+      max_value = array[count]
+    end
+
+    count += 1
+  end
+
+  return max_value
 end
 
 # Finds and returns the smallest integer value in the array
