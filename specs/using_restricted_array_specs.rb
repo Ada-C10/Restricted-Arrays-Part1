@@ -14,7 +14,16 @@ describe "restricted array" do
     my_integer_array_length.must_equal size
   end
 
-  xit "linear search method - value exists in the middle, in the array" do
+  it "print array method - prints all elements" do
+    size = 5
+    my_integer_array = RestrictedArray.new(size)
+
+    print_my_integer_array = print_array(my_integer_array)
+
+    print_my_integer_array.must_equal "#{my_integer_array[0]}, #{my_integer_array[1]}, #{my_integer_array[2]}, #{my_integer_array[3]}, #{my_integer_array[4]}"
+  end
+
+  it "linear search method - value exists in the middle, in the array" do
     size = 9
     my_integer_array = RestrictedArray.new(size)
     value_to_find = 120
@@ -24,7 +33,7 @@ describe "restricted array" do
     search(my_integer_array, size, value_to_find).must_equal true
   end
 
-  xit "linear search method - value exists at the last index in the array" do
+  it "linear search method - value exists at the last index in the array" do
     size = 7
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -36,7 +45,7 @@ describe "restricted array" do
     search(my_integer_array, size, value_to_find).must_equal true
   end
 
-  xit "linear search method - value does not exist in array" do
+  it "linear search method - value does not exist in array" do
     size = 4
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
