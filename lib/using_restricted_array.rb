@@ -43,18 +43,54 @@ end
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  if array[0] == nil
+    return nil
+  else
+    i = 0
+    largest_value = array[0]
+    while i < length
+      if array[i] > largest_value
+        largest_value = array[i]
+      end
+      i += 1
+    end
+  end
+  return largest_value
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  if array[0] == nil
+    return nil
+  else
+    i = 0
+    smallest_value = array[0]
+    while i < length
+      if array[i] < smallest_value
+        smallest_value = array[i]
+      end
+      i += 1
+    end
+  end
+  return smallest_value
 end
+
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  if array[0] == nil
+    return nil
+  else
+    i = 0
+    j = length - 1
+    while i < j
+      array[i] = array[j]
+      i += 1
+      j -= 1
+    end
+    return array
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
