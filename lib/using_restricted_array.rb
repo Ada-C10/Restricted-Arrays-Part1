@@ -12,8 +12,6 @@ def length(array)
     i +=1
   end
   return i
-  #set i = 0, starts at the beginng of the array
-  raise NotImplementedError
 end
 
 # Prints each integer values in the array
@@ -21,15 +19,25 @@ def print_array(array)
   i=0
   while array[i]!= nil
     print array[i]
-    i +=1
+    i += 1
   end
-  raise NotImplementedError
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  if array[0] == nil
+    return false
+  else
+      i = 0
+      while i < length
+        if array[i] == value_to_find
+          return true
+        end
+        i += 1
+      end
+      return false
+    end
 end
 
 # Finds and returns the largest integer value the array
