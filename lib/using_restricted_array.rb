@@ -1,5 +1,4 @@
 require_relative 'restricted_array.rb'
-require 'pry'
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -19,6 +18,16 @@ end
 # Prints each integer values in the array
 def print_array(array)
 
+  return nil if array[0] == nil
+
+  i = 0
+  array_string = ""
+  while array[i] != nil
+    array_string += "#{array[i]} "
+    i += 1
+  end
+
+  return array_string
   raise NotImplementedError
 end
 
@@ -37,7 +46,6 @@ def search(array, length, value_to_find)
   end
 
   return false
-
   raise NotImplementedError
 end
 
@@ -57,7 +65,6 @@ def find_largest(array, length)
   end
 
   return largest_value
-
   raise NotImplementedError
 end
 
@@ -75,15 +82,25 @@ def find_smallest(array, length)
     end
     i += 1
   end
-  return smallest_value
 
+  return smallest_value
   raise NotImplementedError
 end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
+  return nil if array[0] == nil
 
+  i = 0
+  j = length - 1
 
+  while i < j
+    array[i], array[j] = array[j], array[i]
+    i += 1
+    j -= 1
+  end
+
+  return
   raise NotImplementedError
 end
 
@@ -106,12 +123,11 @@ def binary_search(array, length, value_to_find)
     end
   end
 
-    if array[low] == value_to_find
-      return true
-    end
+  if array[low] == value_to_find
+    return true
+  end
 
-    return false
-
+  return false
   raise NotImplementedError
 end
 
