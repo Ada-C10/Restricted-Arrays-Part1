@@ -7,10 +7,14 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
+
+  return nil if array[0] == nil
+
   i = 0
   while array[i] != nil
     i += 1
   end
+
   return i
   raise NotImplementedError
 end
@@ -107,6 +111,7 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
+
   return nil if array[0] == nil
 
   low = 0
