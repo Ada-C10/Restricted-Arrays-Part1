@@ -1,4 +1,5 @@
 require_relative 'restricted_array.rb'
+require 'pry'
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -80,12 +81,13 @@ end
 # Reverses the values in the integer array in place
 def reverse(array, length)
   if array[0] == nil
-    return nil
+    return false
   else
     i = 0
     j = length - 1
     while i < j
       array[i] = array[j]
+      array[j] = array[i]
       i += 1
       j -= 1
     end
@@ -96,8 +98,32 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  sorted_array = sort(array, length)
+  low = 0
+  high = length - 1
+  if sorted_array[0] == nil
+    return false
+  elsif
+    while low <= high
+      mid = ( (low + high) / 2)
+      if sorted_array[mid] == value_to_find
+        return true
+      elsif sorted_array[mid] > value_to_find
+        high = mid - 1
+        mid = ((low+high)/2)
+      else sorted_array[mid]< value_to_find
+        low = mid + 1
+        mid = ((low+high)/2)
+      end
+    end
+  else
+      return false
+  end
 end
+
+
+
+
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
@@ -122,5 +148,6 @@ def sort(array, length)
       array[index] = temp
     end
   end
+  return array
 end
 ## --- END OF METHODS ---
