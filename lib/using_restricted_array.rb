@@ -89,28 +89,22 @@ end
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
 
-  half = (length / 2)
-  a = array.[](0)
-  b = array.[](length - 1)
+  low = 0
+  high = length - 1
 
-  if a == value_to_find || b == value_to_find
-    return true
-  end
-
-  while a < b
-    if array.[](half) == value_to_find
+  while low < high
+    mid = (low + high )/ 2
+    if array.[](mid) == value_to_find
       return true
-    elsif array.[](half) < value_to_find
-      a = array.[](a)
-      b = array.[](half)
-      half = (half / 2)
-    elsif array.[](half) > value_to_find
-      b = array.[](b)
-      a = array.[](half)
-      half = (half / 2)
+    elsif array.[](mid) > value_to_find
+      high = mid - 1
+    elsif array.[](mid) < value_to_find
+      low = mid + 1
     end
   end
-
+  if array.[](low) == value_to_find
+    return true
+  end
   return false
 end
 
