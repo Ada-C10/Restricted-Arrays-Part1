@@ -1,7 +1,10 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
+require 'minitest/skip_dsl'
+require 'minitest/pride'
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
+require 'pry'
 
 describe "restricted array" do
   it "length method" do
@@ -11,9 +14,23 @@ describe "restricted array" do
     my_integer_array_length = length(my_integer_array)
 
     my_integer_array_length.must_equal size
+
+  end
+
+  it "print method" do
+    size = 5
+
+    my_test_array = RestrictedArray.new(size)
+    size.times do |i|
+      my_test_array[i] = i
+    end
+
+    statement = print_array(my_test_array)
+    statement.must_equal "0\n1\n2\n3\n4\n"
   end
 
   it "linear search method - value exists in the middle, in the array" do
+
     size = 9
     my_integer_array = RestrictedArray.new(size)
     value_to_find = 120
@@ -24,6 +41,7 @@ describe "restricted array" do
   end
 
   it "linear search method - value exists at the last index in the array" do
+
     size = 7
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -36,6 +54,7 @@ describe "restricted array" do
   end
 
   it "linear search method - value does not exist in array" do
+
     size = 4
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -46,7 +65,8 @@ describe "restricted array" do
     search(my_integer_array, size, value_to_find).must_equal false
   end
 
-  it "find largest in unsorted array" do
+it "find largest in unsorted array" do
+
     size = 17
     my_integer_array = RestrictedArray.new(size)
 
@@ -56,7 +76,8 @@ describe "restricted array" do
     largest.must_equal my_integer_array[size - 1]
   end
 
-  it "find largest in sorted array" do
+it "find largest in sorted array" do
+
     size = 14
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -66,7 +87,8 @@ describe "restricted array" do
     largest.must_equal my_integer_array[size - 1]
   end
 
-  it "find smallest in unsorted array" do
+it "find smallest in unsorted array" do
+
     size = 12
     my_integer_array = RestrictedArray.new(size)
 
@@ -77,6 +99,7 @@ describe "restricted array" do
   end
 
   it "find smallest in sorted array" do
+
     size = 11
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -87,6 +110,7 @@ describe "restricted array" do
   end
 
   it "reverse array - odd count" do
+    skip
     size = 9
     my_integer_array = RestrictedArray.new(size)
     test_array = Array.new(size)
@@ -104,6 +128,7 @@ describe "restricted array" do
   end
 
   it "reverse array - even count" do
+    skip
     size = 8
     my_integer_array = RestrictedArray.new(size)
     test_array = Array.new(size)
@@ -121,6 +146,7 @@ describe "restricted array" do
   end
 
   it "find largest in sorted, reversed array" do
+    skip
     size = 14
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -132,6 +158,7 @@ describe "restricted array" do
   end
 
   it "find smallest in sorted, reversed array" do
+    skip
     size = 11
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -143,6 +170,7 @@ describe "restricted array" do
   end
 
   it "linear search method on sorted, reversed array - value exists in the array" do
+    skip
     size = 13
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -155,6 +183,7 @@ describe "restricted array" do
   end
 
   it "binary search method - value exists at the last index in the array" do
+    skip
     size = 13
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -166,6 +195,7 @@ describe "restricted array" do
   end
 
   it "binary search method - value exists at the middle index in the array" do
+    skip
     size = 15
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -177,6 +207,7 @@ describe "restricted array" do
   end
 
   it "binary search method - value does not exist in the array" do
+    skip
     size = 15
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
