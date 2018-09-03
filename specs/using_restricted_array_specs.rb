@@ -96,7 +96,7 @@ describe "restricted array" do
     smallest.must_equal my_integer_array[0]
   end
 
-  xit "reverse array - odd count" do
+  it "reverse array - odd count" do
     size = 9
     my_integer_array = RestrictedArray.new(size)
     test_array = Array.new(size)
@@ -113,7 +113,7 @@ describe "restricted array" do
     end
   end
 
-  xit "reverse array - even count" do
+  it "reverse array - even count" do
     size = 8
     my_integer_array = RestrictedArray.new(size)
     test_array = Array.new(size)
@@ -130,7 +130,7 @@ describe "restricted array" do
     end
   end
 
-  xit "find largest in sorted, reversed array" do
+  it "find largest in sorted, reversed array" do
     size = 14
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -141,7 +141,7 @@ describe "restricted array" do
     largest.must_equal my_integer_array[0]
   end
 
-  xit "find smallest in sorted, reversed array" do
+  it "find smallest in sorted, reversed array" do
     size = 11
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -152,7 +152,7 @@ describe "restricted array" do
     smallest.must_equal my_integer_array[size - 1]
   end
 
-  xit "linear search method on sorted, reversed array - value exists in the array" do
+  it "linear search method on sorted, reversed array - value exists in the array" do
     size = 13
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -176,7 +176,7 @@ describe "restricted array" do
     binary_search(my_integer_array, size, value_to_find).must_equal true
   end
 
-  xit "binary search method - value exists at the middle index in the array" do
+  it "binary search method - value exists at the middle index in the array" do
     size = 15
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -187,7 +187,7 @@ describe "restricted array" do
     binary_search(my_integer_array, size, value_to_find).must_equal true
   end
 
-  xit "binary search method - value does not exist in the array" do
+  it "binary search method - value does not exist in the array" do
     size = 15
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
