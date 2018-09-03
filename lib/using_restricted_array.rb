@@ -14,13 +14,15 @@ def length(array)
   end
 
   return counter
-
-
 end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  counter = 0
+
+  until array[counter] == nil
+    puts array[counter]
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
