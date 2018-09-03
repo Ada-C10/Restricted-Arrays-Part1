@@ -46,7 +46,7 @@ def find_largest(array, length)
   largest_value = array[0]
   i = 0
 
-  length.times do |i|
+  while i < length
     if array[i] > largest_value
       largest_value = array[i]
     end
@@ -54,9 +54,6 @@ def find_largest(array, length)
   end
   return largest_value
 
-  # # sorted array
-  # sort(array, length) = new_array
-  # largest_value = new_array[-1]
 end
 
 
@@ -74,24 +71,23 @@ def find_smallest(array, length)
     i += 1
   end
   return smallest_value
-
-  # # sorted array
-  # sort(array, length) = new_array
-  # smallest_value = new_array[0]
 end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
 
-  reversed_array = []
-
+  # reversed_array = []
   i = 0
-  length.times do |i|
-    reversed_array << array[length - i]
+  j = length - 1
+  while i < j
+  # length.times do |i|
+    array[i] = array[j]
+        # reversed_array << array[length - i]
     i += 1
+    j -= 1
   end
 
-  return reversed_array
+  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
