@@ -76,7 +76,7 @@ describe "restricted array" do
     largest.must_equal my_integer_array[size - 1]
   end
 
-  xit "find smallest in unsorted array" do
+  it "find smallest in unsorted array" do
     size = 12
     my_integer_array = RestrictedArray.new(size)
 
@@ -86,7 +86,7 @@ describe "restricted array" do
     smallest.must_equal my_integer_array[0]
   end
 
-  xit "find smallest in sorted array" do
+  it "find smallest in sorted array" do
     size = 11
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -164,9 +164,10 @@ describe "restricted array" do
     search(my_integer_array, size, value_to_find).must_equal true
   end
 
-  xit "binary search method - value exists at the last index in the array" do
+  it "binary search method - value exists at the last index in the array" do
     size = 13
     my_integer_array = RestrictedArray.new(size)
+
     size.times do |i|
       my_integer_array[i] = i * 10
     end
