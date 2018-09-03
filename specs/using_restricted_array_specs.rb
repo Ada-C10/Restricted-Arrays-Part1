@@ -146,7 +146,7 @@ it "find smallest in unsorted array" do
   end
 
   it "find largest in sorted, reversed array" do
-    skip
+  
     size = 14
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -207,7 +207,7 @@ it "find smallest in unsorted array" do
   end
 
   it "binary search method - value does not exist in the array" do
-    
+
     size = 15
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|

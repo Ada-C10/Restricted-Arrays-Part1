@@ -106,23 +106,53 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
+#first method for binary search
+#seems slower than second, below
+# def binary_search(array, length, value_to_find)
+#
+#   high = length / 2
+#   low = high - 1
+#
+#   until (low == length - 1)
+#     if value_to_find.class == nil
+#       return false
+#     elsif array[high] == value_to_find
+#       return true
+#     elsif array[high] < value_to_find
+#       low = high
+#       high = high + 1
+#     elsif array[high] > value_to_find
+#       low = high
+#       high = high - 1
+#     end
+#   end
+#
+#   return false
+# end
+
+#second method for binary search
+#seems faster
 def binary_search(array, length, value_to_find)
 
-  high = length / 2
-  low = high - 1
+  middle = length / 2
+  low = middle - 1
+  high = middle + 1
 
-  until (low == length - 1)
-    if array[high] == value_to_find
+  until (low == length - 1 || high == 0)
+    if value_to_find.class == nil
+      return false
+    elsif array[middle] == value_to_find || array[low] == value_to_find || array[high] == value_to_find
       return true
-    elsif array[high] < value_to_find
+    elsif array[middle] < value_to_find
+      middle += 2
       low = high
-      high = high + 1
-    elsif array[high] > value_to_find
-      low = high
-      high = high - 1
+      high += 2
+    elsif array[middle] > value_to_find
+      middle -= 2
+      high = low
+      low -=2
     end
   end
-
   return false
 end
 
@@ -151,23 +181,3 @@ def sort(array, length)
   end
 end
 ## --- END OF METHODS ---
-
-# middle = length / 2
-# low = middle - 1
-# # high = middle + 1
-#
-# until (low == length - 1)
-#   if array[middle] == value_to_find
-#     return true
-#   elsif array[middle] < value_to_find
-#     # high = middle + 2
-#     low = middle
-#     middle = middle + 1
-#   elsif array[middle] > value_to_find
-#     low = middle
-#     # high = middle - 2
-#     middle = middle - 1
-#   end
-# end
-#
-# return false
