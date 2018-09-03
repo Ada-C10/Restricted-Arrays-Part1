@@ -108,26 +108,22 @@ end
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
 
-  middle = length / 2
-  low = 0
-  high = length - 1
+  high = length / 2
+  low = high - 1
 
   until (low == length - 1)
-    if array[middle] == value_to_find
+    if array[high] == value_to_find
       return true
-    elsif array[middle] < value_to_find
-      high = middle + 2
-      low = middle
-      middle = middle + 1
-    elsif array[middle] > value_to_find
-      low = middle
-      high = middle - 2
-      middle = middle - 1
+    elsif array[high] < value_to_find
+      low = high
+      high = high + 1
+    elsif array[high] > value_to_find
+      low = high
+      high = high - 1
     end
   end
-  
-  return false
 
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
@@ -155,3 +151,23 @@ def sort(array, length)
   end
 end
 ## --- END OF METHODS ---
+
+# middle = length / 2
+# low = middle - 1
+# # high = middle + 1
+#
+# until (low == length - 1)
+#   if array[middle] == value_to_find
+#     return true
+#   elsif array[middle] < value_to_find
+#     # high = middle + 2
+#     low = middle
+#     middle = middle + 1
+#   elsif array[middle] > value_to_find
+#     low = middle
+#     # high = middle - 2
+#     middle = middle - 1
+#   end
+# end
+#
+# return false
