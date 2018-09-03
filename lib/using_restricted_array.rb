@@ -87,7 +87,7 @@ def find_smallest(array, length)
     index = 0
     smallest_value = array[0]
 
-    until index == length
+    while index < length
       if array[index] < smallest_value # > array[index]
         smallest_value = array[index]
       end
