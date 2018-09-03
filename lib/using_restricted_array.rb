@@ -82,12 +82,24 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  1 3 5 6 2 5
-  index = 0
+  # 1 3 5 6 2 5
+  index = -1
+  reverse_array = []
 
-  until index == length
-    
+  until index == (length + 1) * -1
+    reverse_array << array[index]
+    index -= 1
+    puts "#{reverse_array}"
   end
+  # array = reverse_array
+  # return array
+  index = 0
+  until index == length
+    array[index] = reverse_array[index]
+    index+= 1
+  end
+
+  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
