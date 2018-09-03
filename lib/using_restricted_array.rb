@@ -32,42 +32,81 @@ end
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
   index = 0
-  @found = "undefined"
+  found = "undefined"
 
   until index == length  #|| @found == true
     if array[index] == value_to_find
-      @found = true
+      found = true
       break
     else
       index += 1
     end
   end
 
-  @found = false if @found != true
-  return @found
+  found = false if found != true
+  return found
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  
+  index = 0
+  largest = array[0]
+
+  until index == length
+    if array[index] > largest # > array[index]
+      largest = array[index]
+    # else
+    #   largest = array[index]
+    end
+    index += 1
+  end
+  return largest
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  index = 0
+  smallest = array[0]
+
+  until index == length
+    if array[index] < smallest # > array[index]
+      smallest = array[index]
+    end
+    index += 1
+  end
+
+  return smallest
 end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  1 3 5 6 2 5
+  index = 0
+
+  until index == length
+    
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  index = 0
+  found = "undefined"
+
+  until index == length  #|| @found == true
+    if array[index] == value_to_find
+      found = true
+      break
+    else
+      index += 1
+    end
+  end
+
+  found = false if found != true
+  return found
 end
 
 # Helper method provided to sort the array in ascending order
