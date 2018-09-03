@@ -35,10 +35,9 @@ end
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  number_of_elements = length(array)
 
   count = 0
-  while count < number_of_elements
+  while count < length
     if array[count] == value_to_find
       return true
     end
@@ -52,12 +51,10 @@ end
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  number_of_elements = length(array)
-
   count = 0
   max_value = array[count]
 
-  while count < number_of_elements
+  while count < length
     if array[count] > max_value
       max_value = array[count]
     end
@@ -71,7 +68,18 @@ end
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  count = 0
+  min_value = array[count]
+
+  while count < length
+    if array[count] < min_value
+      min_value = array[count]
+    end
+
+    count += 1
+  end
+
+  return min_value
 end
 
 # Reverses the values in the integer array in place
@@ -82,7 +90,23 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  low = 0
+  high = length - 1
+  mid = (low + high) / 2
+
+  while low <= high
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] < value_to_find
+      low = mid + 1
+      mid = (low + high) / 2
+    elsif array[mid] > value_to_find
+      high = mid - 1
+      mid = (low + high) / 2
+    end
+  end
+
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
