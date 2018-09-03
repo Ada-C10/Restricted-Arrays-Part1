@@ -104,7 +104,7 @@ def reverse(array, length)
     j -= 1
   end
 
-  return
+  return array
   raise NotImplementedError
 end
 
