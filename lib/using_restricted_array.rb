@@ -29,7 +29,7 @@ end
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
 if length > 0
-  length.times each do |index|
+  length.times do |index|
     if array[index] == value_to_find
       return true
     end
