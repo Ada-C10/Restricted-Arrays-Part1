@@ -34,16 +34,22 @@ def search(array, length, value_to_find)
   index = 0
   found = "undefined"
 
-  until index == length  #|| @found == true
-    if array[index] == value_to_find
-      found = true
-      break
-    else
-      index += 1
+  if array[0] != nil
+
+    until index == length  #|| @found == true
+      if array[index] == value_to_find
+        found = true
+        break
+      else
+        index += 1
+      end
     end
+    found = false if found != true
+
+  else
+    found = false
   end
 
-  found = false if found != true
   return found
 end
 
@@ -51,17 +57,17 @@ end
 # Assumes that the array is not sorted.
 def find_largest(array, length)
   index = 0
-  largest = array[0]
+  largest_value = array[0]
 
   until index == length
-    if array[index] > largest # > array[index]
-      largest = array[index]
+    if array[index] > largest_value # > array[index]
+      largest_value = array[index]
     # else
-    #   largest = array[index]
+    #   largest_value = array[index]
     end
     index += 1
   end
-  return largest
+  return largest_value
 end
 
 # Finds and returns the smallest integer value in the array
@@ -99,7 +105,7 @@ def reverse(array, length)
     index+= 1
   end
 
-  return array
+  return reverse_array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
