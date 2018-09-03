@@ -1,4 +1,5 @@
 require_relative 'restricted_array.rb'
+require 'pry'
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -6,42 +7,110 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
+# array = RestrictedArray.new
 def length(array)
-  raise NotImplementedError
+  # index number at array[0]
+  length = 0
+    while array[length] != nil
+      length += 1
+    end
+
+  return length
 end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  index = 0
+  while index <= length
+    puts array[index]
+    index += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  i = 0
+  length.times do |i|
+    if array[i] == value_to_find
+      return true
+    else
+      i += 1
+    end
+  end
+  return false
 end
-
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  largest_value = array[0]
+  i = 0
+
+  length.times do |i|
+    if array[i] > largest_value
+      largest_value = array[i]
+      i += 1
+    end
+  end
+  return largest_value
+
+  # # sorted array
+  # sort(array, length) = new_array
+  # largest_value = new_array[-1]
 end
+
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  # unsorted array
+  smallest_value = array[0]
+  i = 0
+
+  length.times do |i|
+    if array[i] < smallest_value
+      smallest_value = array[i]
+      i += 1
+    end
+  end
+  return smallest_value
+
+  # # sorted array
+  # sort(array, length) = new_array
+  # smallest_value = new_array[0]
 end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+
+  reversed_array = []
+
+  i = 0
+  length.times do |i|
+    reversed_array << array[length-i]
+    i += 1
+  end
+
+  return reversed_array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  i = length/2
+
+  value = array[i]
+
+  length.times do |i|
+    length.times do |i|
+      if array[i] == value_to_find
+        return true
+      else
+        i += 1
+      end
+    end
+    return false
+  end
 end
 
 # Helper method provided to sort the array in ascending order
