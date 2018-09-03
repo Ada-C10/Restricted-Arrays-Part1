@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
+require 'minitest/skip_dsl'
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
 
@@ -11,6 +12,15 @@ describe "restricted array" do
     my_integer_array_length = length(my_integer_array)
 
     my_integer_array_length.must_equal size
+  end
+
+  it "print array method - prints all elements" do
+    size = 5
+    my_integer_array = RestrictedArray.new(size)
+
+    print_my_integer_array = print_array(my_integer_array)
+
+    print_my_integer_array.must_equal "#{my_integer_array[0]}, #{my_integer_array[1]}, #{my_integer_array[2]}, #{my_integer_array[3]}, #{my_integer_array[4]}"
   end
 
   it "linear search method - value exists in the middle, in the array" do
@@ -157,6 +167,7 @@ describe "restricted array" do
   it "binary search method - value exists at the last index in the array" do
     size = 13
     my_integer_array = RestrictedArray.new(size)
+
     size.times do |i|
       my_integer_array[i] = i * 10
     end
