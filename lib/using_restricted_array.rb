@@ -30,12 +30,12 @@ end
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  i = 0
-  length.times do |i|
-    if array[i] == value_to_find
+  x = 0
+  length.times do |x|
+    if array[x] == value_to_find
       return true
     else
-      i += 1
+      x += 1
     end
   end
   return false
@@ -49,8 +49,8 @@ def find_largest(array, length)
   length.times do |i|
     if array[i] > largest_value
       largest_value = array[i]
-      i += 1
     end
+    i += 1
   end
   return largest_value
 
@@ -70,8 +70,8 @@ def find_smallest(array, length)
   length.times do |i|
     if array[i] < smallest_value
       smallest_value = array[i]
-      i += 1
     end
+    i += 1
   end
   return smallest_value
 
@@ -87,7 +87,7 @@ def reverse(array, length)
 
   i = 0
   length.times do |i|
-    reversed_array << array[length-i]
+    reversed_array << array[length - i]
     i += 1
   end
 
@@ -118,8 +118,7 @@ end
 # Time complexity = O(n^2) since to find the correct value to be in a given location,
 # all the remaining elements are visited. This is done for each location.
 # (nested loop of size n each)
-# Space complexity = O(1) since the additional storage needed does not depend
-#                    on input array size.
+# Space complexity = O(1) since the additional storage needed does not depend on input array size.
 def sort(array, length)
   length.times do |index| # outer loop - n elements
     min_index = index # assume index is where the next minimally value is
