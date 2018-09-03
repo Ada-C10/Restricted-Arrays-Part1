@@ -7,41 +7,106 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
-  raise NotImplementedError
+  length = 0
+  20.times do |index|
+    if array[index] == nil
+      break
+    else
+      length += 1
+    end
+  end
+  return length
 end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  value = ""
+  length(array).times do |index|
+    value << array[index].to_s + " "
+  end
+  print value
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  length.times do |index|
+    if array[index] == value_to_find
+      return true
+    end
+  end
+  return false
 end
+
+
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  largest_integer = 0
+  length.times do |index|
+    if array[index] > largest_integer
+      largest_integer = array[index]
+    end
+  end
+  return largest_integer
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  smallest_integer = 222
+  length.times do |index|
+    if array[index] < smallest_integer
+      smallest_integer = array[index]
+    end
+  end
+  return smallest_integer
 end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  i = 0
+  j = length(array) - 1
+
+  while i < j do
+      last = array[j]
+      first = array[i]
+
+      array[i] = last
+      array[j] = first
+
+      i += 1
+      j -= 1
+    end
+
+    return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  i = 0
+  j = length(array) - 1
+
+  while i < j
+    mid = (i + j) / 2
+
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      j = mid - 1
+    else
+      i = mid + 1
+    end
+  end
+
+  if array[i] == value_to_find
+    return true
+  else
+    return false
+  end
+
 end
 
 # Helper method provided to sort the array in ascending order
