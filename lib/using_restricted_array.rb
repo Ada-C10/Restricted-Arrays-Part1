@@ -36,7 +36,8 @@ def search(array, length, value_to_find)
 
   if array[0] != nil
 
-    until index == length  #|| @found == true
+    while index < length
+    # until index == length  #|| @found == true
       if array[index] == value_to_find
         found = true
         break
@@ -56,25 +57,30 @@ end
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  index = 0
-  largest_value = array[0]
+  if array[0] == nil
+    return nil
+  else
+    index = 0
+    largest_value = array[0]
 
-  until index == length
-    if array[index] > largest_value # > array[index]
-      largest_value = array[index]
-    # else
-    #   largest_value = array[index]
+    while index < length
+      if array[index] > largest_value # > array[index]
+        largest_value = array[index]
+        # else
+        #   largest_value = array[index]
+      end
+      index += 1
     end
-    index += 1
+
+    return largest_value
   end
-  return largest_value
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
 
-  if array[0] == nil # But what if array is [nil, 4, 3, 2, 7]? 
+  if array[0] == nil # But what if array is [nil, 4, 3, 2, 7]?
   # if array == []
     smallest_value = nil
   else
