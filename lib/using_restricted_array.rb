@@ -68,7 +68,6 @@ end
 # Assumes that the array is not sorted.
 def find_largest(array, length)
 
-
   max = 0
   index = 0
 
@@ -103,17 +102,23 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
 
-  # index = 0
-  # statement = ""
-  # while array[index] != nil
-  #   statement += "#{array[index]}\n"
-  #   index += 1
-  # end
-  #
-  # return statement
+  left = 0
+  right = length - 1
+  pointer = 0
+
+  while (left < right)
+    pointer = array[left]
+    array[left] = array[right]
+    array[right] = pointer
+
+    left += 1
+    right -= 1
+  end
+
+  return array
 end
+
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.

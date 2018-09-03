@@ -110,7 +110,7 @@ it "find smallest in unsorted array" do
   end
 
   it "reverse array - odd count" do
-    skip
+
     size = 9
     my_integer_array = RestrictedArray.new(size)
     test_array = Array.new(size)
@@ -128,7 +128,7 @@ it "find smallest in unsorted array" do
   end
 
   it "reverse array - even count" do
-    skip
+
     size = 8
     my_integer_array = RestrictedArray.new(size)
     test_array = Array.new(size)
