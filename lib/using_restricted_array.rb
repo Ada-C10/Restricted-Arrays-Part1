@@ -73,17 +73,24 @@ end
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  index = 0
-  smallest = array[0]
 
-  until index == length
-    if array[index] < smallest # > array[index]
-      smallest = array[index]
+  if array[0] == nil # But what if array is [nil, 4, 3, 2, 7]? 
+  # if array == []
+    smallest_value = nil
+  else
+    index = 0
+    smallest_value = array[0]
+
+    until index == length
+      if array[index] < smallest_value # > array[index]
+        smallest_value = array[index]
+      end
+
+      index += 1
     end
-    index += 1
-  end
 
-  return smallest
+  end
+    return smallest_value
 end
 
 # Reverses the values in the integer array in place
