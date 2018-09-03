@@ -34,22 +34,6 @@ end
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
 
-  # middle = length / 2
-  #
-  # until (low == length - 1)
-  #   if array[middle] == value_to_find
-  #     return true
-  #   elsif array[middle] < value_to_find
-  #     high = middle + 2
-  #     low = middle
-  #     middle = middle + 1
-  #   elsif array[middle] > value_to_find
-  #     low = middle
-  #     high = middle - 2
-  #     middle = middle - 1
-  #   end
-  # end
-
   index = 0
 
   while (index < length)
@@ -105,12 +89,12 @@ def reverse(array, length)
 
   left = 0
   right = length - 1
-  pointer = 0
+  left_container = 0
 
   while (left < right)
-    pointer = array[left]
+    left_container = array[left]
     array[left] = array[right]
-    array[right] = pointer
+    array[right] = left_container
 
     left += 1
     right -= 1
@@ -123,7 +107,27 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+
+  middle = length / 2
+  low = 0
+  high = length - 1
+
+  until (low == length - 1)
+    if array[middle] == value_to_find
+      return true
+    elsif array[middle] < value_to_find
+      high = middle + 2
+      low = middle
+      middle = middle + 1
+    elsif array[middle] > value_to_find
+      low = middle
+      high = middle - 2
+      middle = middle - 1
+    end
+  end
+  
+  return false
+
 end
 
 # Helper method provided to sort the array in ascending order
