@@ -84,7 +84,19 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  count = 0
+  max_count = length - 1
+
+  return false if array[count] == nil
+
+  while count <= max_count
+    temp = array[count]
+    array[count] = array[max_count]
+    array[max_count] = temp
+
+    count += 1
+    max_count -= 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
