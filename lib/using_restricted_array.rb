@@ -73,15 +73,48 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+
+  # this is wrong
+  if length > 0
+    total_index = length - 1
+
+    length.times do |index|
+      array[total_index] = array[index]
+
+      total_index -= 1
+      index += 1
+    end
+
+    return array
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
-end
+  sorted_array = array
 
+  upper_bound = length - 1
+  lower_bound = 0
+  mid = ( (upper_bound + lower_bound) / 2 )
+
+  while upper_bound >= lower_bound
+
+    if sorted_array[mid] == value_to_find
+      return true
+
+    elsif sorted_array[mid] > value_to_find
+      upper_bound = mid - 1
+
+    elsif sorted_array[mid] < value_to_find
+      lower_bound = mid + 1
+    end
+
+    mid = ( (upper_bound + lower_bound) / 2 )
+  end
+
+  return false
+end
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
 # Time complexity = O(n^2) since to find the correct value to be in a given location,
