@@ -7,12 +7,23 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
-  raise NotImplementedError
+  i = 0
+  until array[i] == nil
+    if array[i] != nil
+      i += 1
+    end
+  end
+  return i
 end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  i = 0
+  while i < array.length - 1
+    print "#{array[i]} "
+    i += 1
+  end
+  print "#{array[i]}"
 end
 
 # For an unsorted array, searches for 'value_to_find'.
