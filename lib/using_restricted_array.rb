@@ -7,41 +7,78 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
-  raise NotImplementedError
+  index = 0
+  while array[index] != nil
+    index += 1
+  end
+  return index
 end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  index = 0
+  while array[index] != nil
+    print array[index]
+    print " "
+    index += 1
+  end
 end
-
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  index = 0
+  while index < length
+    return true if array[index] == value_to_find
+    index += 1
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  index = 1
+  value = array[0]
+  while index < length
+    value = array[index] if array[index] > value
+    index += 1
+  end
+  return value
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  index = 1
+  value = array[0]
+  while index < length
+    value = array[index] if array[index] < value
+    index += 1
+  end
+  return value
 end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  index = 0
+  while index < length/2
+    swapped_element = array[index]
+    array[index] = array[length -1 - index]
+    array[length -1 - index] = swapped_element
+    index += 1
+  end
+  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  index = 0
+  while index < length
+    return true if array[index] == value_to_find
+    index += 1
+  end
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
@@ -66,6 +103,6 @@ def sort(array, length)
       array[min_index] = array[index]
       array[index] = temp
     end
-  end
+end
 end
 ## --- END OF METHODS ---
