@@ -41,13 +41,13 @@ def search(array, length, value_to_find)
   return false
 end
 #
-# # Finds and returns the largest integer value the array
-# # Assumes that the array is not sorted.
+# Finds and returns the largest integer value the array
+# Assumes that the array is not sorted.
 def find_largest(array, length)
+  largest = 0
   i = 0
-  largest = array[0]
   while array[i]
-    if array[i] > largest
+    if array[i] >= largest
       largest = array[i]
     end
     i += 1
@@ -55,8 +55,8 @@ def find_largest(array, length)
   return largest
 end
 
-#   # Finds and returns the smallest integer value in the array
-#   # Assumes that the array is not sorted.
+# Finds and returns the smallest integer value in the array
+# Assumes that the array is not sorted.
 def find_smallest(array, length)
   smallest = array[0]
   i = 0
@@ -65,38 +65,46 @@ def find_smallest(array, length)
       smallest = array[i]
     end
     i += 1
-    # binding.pry
   end
   return smallest
 end
-#
-# #   # Reverses the values in the integer array in place
+
+# Reverses the values in the integer array in place
 def reverse(array, length)
   i = 0
-  n = 1
-  # last_value = array[length - n]
-  new_array = []
-  while array[i]
-    last_value = array[length - n]
-    new_array << last_value
+  last = length - 1
+  while i < last
+    temp = array[i]
+    array[i] = array[last]
+    array[last] = temp
     i += 1
-    n += 1
+    last -= 1
   end
+  return array
 end
 #
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
+
 def binary_search(array, length, value_to_find)
-  i = 0
-  while array[i]
-    if array[i] == value_to_find
+  low = 0
+  high = length - 1
+  mid = (high - low)/2
+  while low < high
+    if value_to_find == array[low] || value_to_find == array[high]
       return true
-    else
-      i += 1
     end
+    if value_to_find < array[mid]
+      mid = high
+    elsif value_to_find > array[mid]
+      mid = low
+    elsif array[mid] == value_to_find
+      return true
+    end
+    return false
   end
-  return false
 end
+
 
 #   # Helper method provided to sort the array in ascending order
 #   # Implements selection sort
