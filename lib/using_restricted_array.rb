@@ -66,15 +66,55 @@ def find_smallest(array, length)
   return min
 end
 
+# first = 0
+# last = length - 1
+# even = true if length % 2 == 0
+# middle = length / 2
+# while first < middle
+#   array[first] = array[last]
+#   array[last] = array[first]
+#   first += 1
+#   last -= 1
+# end
+
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  puts "before"
+  print print_array(array)
+  storage = 0
+  num = 1
+  while storage != length - num
+    array[storage] = array[length - num]
+    storage += 1
+    num += 1
+  end
+  puts "after"
+  print print_array(array)
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  low = array[0]
+  high = array[length - 1]
+  index = 0
+
+  while low < high
+    mid = (low + high) / 2
+    if mid == value_to_find
+      return true
+    elsif mid > value_to_find
+      high = mid - 1
+    elsif mid < value_to_find
+      low = mid + 1
+    end
+    if low == value_to_find || high == value_to_find
+      return true
+    else
+      return false
+    end
+  end
+
 end
 
 # Helper method provided to sort the array in ascending order
