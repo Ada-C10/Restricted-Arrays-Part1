@@ -67,22 +67,19 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  index = 1
-  array1 = []
+  i = 0
+  j = (length - 1)
+  x = []
 
-  while array[index] != nil
-    index -= 1
-    if array[index-1] != nil
-      array1 << array[index-1]
+  while array[i] != nil
+    if i < j
+      x = array[j]
+      array[j] = array[i]
+      array[i] = x
     end
+    j -= 1
+    i += 1
   end
-
-  index = 0
-  while array1[index] != nil
-    array[index] = array1[index]
-    index += 1
-  end
-
   return array
 end
 
@@ -90,8 +87,25 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  low = 0
+  high = (length - 1)
+  mid = (low + high)/2
+
+  while array[low] != nil && value_to_find <= array[high]
+    while low < high
+      if array[mid] == value_to_find
+      elsif array[mid] > value_to_find
+        high = (mid - 1)
+      elsif array[mid] < value_to_find
+        low = (mid + 1)
+      end
+      return true
+    end
+  end
+  return false
+
 end
+
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
