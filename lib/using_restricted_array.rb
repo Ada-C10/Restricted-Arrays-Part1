@@ -76,13 +76,27 @@ end
 # Reverses the values in the integer array in place
 def reverse(array, length)
 
-  # reversed_array = []
+# # reverse 
+#   reversed_array = Array.new(length)
+#   i = 0
+#   j = length - 1
+#   while i < length
+#     reversed_array[i] = array[j]
+#     i += 1
+#     j -= 1
+#   end
+#
+#   return reversed_array
+
+  # reserve bang
   i = 0
   j = length - 1
+
   while i < j
-  # length.times do |i|
+    temp = array[i]
     array[i] = array[j]
-        # reversed_array << array[length - i]
+    array[j] = temp
+
     i += 1
     j -= 1
   end
