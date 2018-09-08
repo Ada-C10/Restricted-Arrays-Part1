@@ -86,8 +86,9 @@ def reverse(array, length)
     i = 0
     j = length - 1
     while i < j
+      temp = array[i]
       array[i] = array[j]
-      array[j] = array[i]
+      array[j] = temp
       i += 1
       j -= 1
     end
