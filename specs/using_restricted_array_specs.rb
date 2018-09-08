@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
+require 'pry'
 
 describe "restricted array" do
   it "length method" do
@@ -12,6 +13,7 @@ describe "restricted array" do
 
     my_integer_array_length.must_equal size
   end
+
 
   it "linear search method - value exists in the middle, in the array" do
     size = 9
@@ -45,7 +47,7 @@ describe "restricted array" do
 
     search(my_integer_array, size, value_to_find).must_equal false
   end
-
+  #
   it "find largest in unsorted array" do
     size = 17
     my_integer_array = RestrictedArray.new(size)
@@ -93,6 +95,7 @@ describe "restricted array" do
     size.times do |i|
       test_array[i] = my_integer_array[i]
     end
+
     test_array.reverse!
 
     reverse(my_integer_array, size)
@@ -183,7 +186,6 @@ describe "restricted array" do
       my_integer_array[i] = i * 10
     end
     value_to_find = size * 10
-
     binary_search(my_integer_array, size, value_to_find).must_equal false
   end
 end
