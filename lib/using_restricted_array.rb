@@ -63,7 +63,20 @@ end
 
   # Reverses the values in the integer array in place
   def reverse(array, length)
-    raise NotImplementedError
+    return nil if length.nil?
+        half = length / 2
+        j = length - 1
+        temp_variable = " "
+        i = 0
+
+        while i < half
+          temp_variable = array[i]
+          array[i] = array[j]
+          array[j] = temp_variable
+
+          i += 1
+          j -= 1
+        end
   end
 
   # For an array sorted in ascending order, searches for 'value_to_find'.
