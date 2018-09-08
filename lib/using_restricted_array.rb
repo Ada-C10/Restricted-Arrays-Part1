@@ -26,7 +26,7 @@ end
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  return false if length == 0
+  return false if length <= 0
   i = 0
   until i == length
     return true if array[i] == value_to_find
@@ -38,9 +38,9 @@ end
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  return nil if length == 0
-  i = 0
+  return nil if length <= 0
   largest = array[0]
+  i = 1
   until i == length
     largest = array[i] if array[i] > largest
     i += 1
@@ -51,9 +51,9 @@ end
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  return nil if length == 0
-  i = 0
+  return nil if length <= 0
   smallest = array[0]
+  i = 1
   until i == length
     smallest = array[i] if array[i] < smallest
     i += 1
@@ -63,13 +63,24 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  if length > 1
+    i = 0
+    j = length - 1
+    while i < j
+      temp = array[i]
+      array[i] = array[j]
+      array[j]= temp
+      i += 1
+      j -= 1
+    end
+  end
+  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  return nil if length == 0
+  return false if length <= 0
   low = 0
   high = length - 1
   while low < high
