@@ -109,14 +109,62 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
-end
+  if length == 0
+    return nil
+  end
+
+  # Start at beginning of array with 0 index
+  start = 0
+  # End start value is at last value in array
+  array_end = length - 1
+  # While start is less than half of the length
+  while start < length / 2
+    # Begin at start of array
+    temp = array[start]
+    # Set start value = end value
+    array[start] = array[array_end]
+    # set end of array equal to temp
+      # which in next loop will be
+        # equal to start
+    array[array_end] = temp
+    array_end -= 1
+    start += 1
+  end
+  return array
+  end
+
+  p reverse([1,2,3], 3)
+  # Start i at 0
+  # Start array_end at 1
+  # Start at end of array (length - array end)
+  # Add to beginning of new array i
+  #
+  # Increase i
+  # Increase array end
+  # Return new array
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  low = array[0]
+  high = length - 1
+  mid = (low + high) / 2
+  while low <  high
+    if value_to_find == mid
+      return true
+    elsif mid > value_to_find
+      high = mid - 1
+    else
+      low = mid + 1
+    end
+  end
+  if low == value_to_find
+    return true
+  else
+    return false
+  end
 end
+
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
@@ -142,4 +190,19 @@ def sort(array, length)
     end
   end
 end
-## --- END OF METHODS ---
+
+
+
+## Exercise
+# Implement the methods in using_restricted_array.rb. Methods to implement are:
+# - *length* - which calculates the length of the integer array and returns it.
+#              Note: The restricted_array is terminated by `nil` i.e. `array[length] = nil`
+# - *print_array* - which prints each integer value separated by space on the same line
+# - *reverse* - which reverses the values in the array in place
+# - *search* - which looks for a given integer value in the array. Returns true if found, false otherwise.
+#              Note: do not assume that the array is sorted.
+# - *binary_search* - which looks for a given integer value in the array. Returns true if found, false otherwise.
+#              Note: Assume that the array is sorted in ascending order.
+# - *find_largest* - Finds and returns the largest value element in the integer array.
+# - *find_smallest* - Finds and returns the smallest value element in the integer array.
+# ## --- END OF METHODS ---
