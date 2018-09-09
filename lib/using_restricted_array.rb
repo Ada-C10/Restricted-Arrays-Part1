@@ -71,14 +71,12 @@ def reverse(array, length)
   beg_index = 0
   end_index = length - 1
   temp = 0
-  number_of_swaps = length / 2
-  number_of_swaps.times do
+  while beg_index < end_index
     temp = array[beg_index]
     array[beg_index] = array[end_index]
     array[end_index] = temp
     beg_index += 1
     end_index -= 1
-    number_of_swaps += 1
   end
   return array
 end
