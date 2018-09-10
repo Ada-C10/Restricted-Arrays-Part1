@@ -1,9 +1,9 @@
-require_relative 'restricted_array.rb'
-require 'pry'
-# RestrictedArray can be created using a specified size, or a random size in
-# the range of 1-20 will be chosen for you.
-# All values are integers in the range of 1-221.
-# RestrictedArray cannot be resized.
+  require_relative 'restricted_array.rb'
+  require 'pry'
+  # RestrictedArray can be created using a specified size, or a random size in
+  # the range of 1-20 will be chosen for you.
+  # All values are integers in the range of 1-221.
+  # RestrictedArray cannot be resized.
   # Calculates the length of the restricted array. All values are integers.
   # The restricted_array is terminated by 'nil' i.e. array[length] = nil
   def length(array)
@@ -34,7 +34,7 @@ require 'pry'
       end
       i += 1
     end
-  return false
+    return false
   end
 
   # Finds and returns the largest integer value the array
@@ -69,7 +69,18 @@ require 'pry'
 
   # Reverses the values in the integer array in place
   def reverse(array, length)
-    raise NotImplementedError
+    i = 0
+    j = length - 1
+    while i < j
+      first = array[i]
+      last = array[j]
+      array[j] = first
+      array[i] = last
+      i += 1
+      j -= 1
+
+    end
+    return array
   end
 
   # For an array sorted in ascending order, searches for 'value_to_find'.
@@ -93,10 +104,27 @@ require 'pry'
     end
 
     # puts "#{low}"
-      if array[low] == value_to_find
-        return true
-      end
-      return false
+    if array[low] == value_to_find
+      return true
+    end
+    return false
+
+#     Given array to reverse: {4, 8, 0, 3, 9}
+# Check the input:
+# Array has more than 1 element. Otherwise, all done!
+#
+# Initialize variables:
+# i is an index for the first element in the array (i = 0)
+# j is an index for the last element in the array, at length-1 index (j = 4)
+#
+# Algorithm steps:
+# While i is less than j
+# Swap the values at index i and j.
+# Increment i.
+# Decrement j.
+
+
+
 
 
 
