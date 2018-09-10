@@ -71,40 +71,27 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
+
 def reverse(array, length)
-  # i = 0
-  new_array = []
-  new_index = nil
-  i = 0
-  while i < length
-  # length.times do |i|
-    new_index = (length) - (i + 1)
-    new_array[new_index] = array[i]
-    # binding.pry
-    i += 1
+  if length.nil?
+    return array
+  else
+    i = 0
+    j = (length - 1)
+    holding = nil
+    while i < j
+      # binding.pry
+      holding = array[i]
+      array[i] = array[j]
+      array[j] = holding
+      i += 1
+      j -= 1
+    end
   end
-  new_array << new_array[new_index]
-  binding.pry
-  return new_array
+  return array
 end
 
 
-# For an array sorted in ascending order, searches for 'value_to_find'.
-# Returns true if found, false otherwise.
-# def binary_search(array, length, value_to_find)
-#   i = 0
-#   found = false
-#   while found == false
-#     if value_to_find == array[i]
-#       found = true
-#       return found
-#     else
-#       i += 1
-#     end
-#   end
-#   return found
-# # binding.pry
-# end
 
 def binary_search(array, length, value_to_find)
   low = 0
