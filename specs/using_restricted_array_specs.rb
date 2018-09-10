@@ -1,7 +1,9 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
+require 'minitest/pride'
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
+require 'pry'
 
 describe "restricted array" do
   it "length method" do
@@ -31,6 +33,7 @@ describe "restricted array" do
     end
     value_to_find = 120
     my_integer_array[size - 1] = value_to_find
+    # binding.pry
 
     search(my_integer_array, size, value_to_find).must_equal true
   end
@@ -161,6 +164,8 @@ describe "restricted array" do
       my_integer_array[i] = i * 10
     end
     value_to_find = (size - 1) * 10
+
+    # binding.pry
 
     binary_search(my_integer_array, size, value_to_find).must_equal true
   end
