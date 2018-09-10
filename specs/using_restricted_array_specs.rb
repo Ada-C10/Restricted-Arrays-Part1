@@ -100,6 +100,7 @@ describe "restricted array" do
     length(my_integer_array).must_equal size
     size.times do |i|
       my_integer_array[i].must_equal test_array[i]
+
     end
   end
 
@@ -153,7 +154,7 @@ describe "restricted array" do
 
     search(my_integer_array, size, value_to_find).must_equal true
   end
-
+  
   it "binary search method - value exists at the last index in the array" do
     size = 13
     my_integer_array = RestrictedArray.new(size)
