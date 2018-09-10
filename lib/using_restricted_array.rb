@@ -17,8 +17,10 @@ end
 
 # Prints each integer values in the array
 def print_array(array)
+  index = 0
   while array[index] != nil
     print array[index]
+    index += 1
   end
   # raise NotImplementedError
 end
