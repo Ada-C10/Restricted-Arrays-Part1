@@ -74,20 +74,23 @@ end
 # Reverses the values in the integer array in place
 def reverse(array, length)
 
-  # this is wrong
   if length > 0
-    total_index = length - 1
+    high_index = length - 1
+    low_index = 0
 
-    length.times do |index|
-      array[total_index] = array[index]
+    while high_index > low_index
+      temp_val = array[low_index]
+      array[low_index] = array[high_index]
+      array[high_index] = temp_val
 
-      total_index -= 1
-      index += 1
+      high_index -= 1
+      low_index += 1
     end
 
     return array
   end
 end
+
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
