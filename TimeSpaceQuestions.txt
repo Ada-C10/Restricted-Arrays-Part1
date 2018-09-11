@@ -1,0 +1,16 @@
+Question | Answer
+--- | ---
+What is the time complexity of the length method? Provide justification. | T = O(n) time is solely dependent on the length of the array.
+What is the space complexity of the length method? Provide justification. | S = O(1) space is constant regardless of the size of the array, only 1 variable is assigned in the algorithm.
+What is the time complexity of the print_array method? Provide justification. | T = O(n) time is solely dependent on the length of the array.
+What is the space complexity of the print_array method? Provide justification. | S = O(1) space is constant regardless of the size of the array, only 1 variable is assigned in the algorithm.
+What is the time complexity of the reverse method? Provide justification. | T = O(n) half the length of the array will need to be iterated to locate and swap values. The iterators will move towards each other in each loop so that time is 1/2n or O(n).
+What is the space complexity of the reverse method? Provide justification. | S = O(1) space is constant regardless of the size of the array since it is being altered in place.
+What is the time complexity of the search method? Provide justification. | T = O(n) worst case scenario, time is solely dependent on the length of the array it is possible the entire array will need to be iterated to find the searched value or determine it does not exist.
+What is the space complexity of the search method? Provide justification. | S = O(1) space is constant regardless of the size of the array besides the iterator and length and value to find variables no additional memory is required.
+What is the time complexity of the binary_search method? Provide justification. | T = O(logn) in a binary search at most log n of the array will need to be iterated.
+What is the space complexity of the binary_search method? Provide justification. | S = O(1) space is constant regardless of the size of the array, searching requires no additional storage beyond iterator and value to find.
+What is the time complexity of the find_largest method? Provide justification. | In an unsorted array the find largest method T = O(n) as time to search depends entirely on the length of the array.
+What is the space complexity of the find_largest method? Provide justification. | S = O(1) space is constant regardless of the size of the array
+What is the time complexity of the find_smallest method? Provide justification. | In an unsorted array the find smallest method T = O(n) as time to search depends entirely on the length of the array.
+What is the space complexity of the find_smallest method? Provide justification. | S = O(1) space is constant regardless of the size of the array, no additional memory is required beyond the iterator and value to find.
