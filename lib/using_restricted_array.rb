@@ -101,43 +101,50 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  # 1 3 5 6 2 5
-  index = -1
-  reverse_array = []
+  if length <= 1
+    return array
+  else
+    i = 0
+    j = length - 1
+    temp = "empty"
 
-  until index == (length + 1) * -1
-    reverse_array << array[index]
-    index -= 1
-    puts "#{reverse_array}"
-  end
-  # array = reverse_array
-  # return array
-  index = 0
-  until index == length
-    array[index] = reverse_array[index]
-    index+= 1
-  end
+    while i < j
+      temp = array[i]
+      array[i] = array[j]
+      array[j] = temp
+      i += 1
+      j -= 1
+    end
 
-  return reverse_array
+    return array
+  end 
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  index = 0
-  found = "undefined"
+  if array[0] == nil
+    return false
+  else
+    low = 0
+    high = length - 1
 
-  until index == length  #|| @found == true
-    if array[index] == value_to_find
-      found = true
-      break
-    else
-      index += 1
+    while low < high
+      mid = ((low + high) / 2)
+
+      if array[mid] == value_to_find
+        return true
+      elsif array[mid] > value_to_find
+        high = mid - 1
+      elsif array[mid] < value_to_find
+        low = mid - 1
+      elsif array[low] == value_to_find
+        return true
+      end
+
     end
+    return false
   end
-
-  found = false if found != true
-  return found
 end
 
 # Helper method provided to sort the array in ascending order
