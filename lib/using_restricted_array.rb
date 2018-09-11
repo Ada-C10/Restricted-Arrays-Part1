@@ -20,11 +20,12 @@ end
 
 # Prints each integer values in the array
 def print_array(array)
-  # raise NotImplementedError
-  index = 0
+  s = ''
   while array[index] != nil do
+    s << "#{array[index]}"
     index += 1
   end
+  return s
 end
 
 # For an unsorted array, searches for 'value_to_find'.
