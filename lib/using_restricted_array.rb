@@ -10,8 +10,10 @@ require 'minitest/pride'
 def length(array)
 #  raise NotImplementedError
   i = 0
-  until array[i] == nil
+  value = array[0]
+  until value == nil
     i += 1
+    value = array[i]
   end
   return i
 end
@@ -20,8 +22,9 @@ end
 # Prints each integer values in the array
 def print_array(array)
 #  raise NotImplementedError
-  while array[index] != nil
-    print array[index].to_s + " "
+  until array[i] == nil
+    print "#{array[i]}"
+    i += 1
   end
 end
 
@@ -58,20 +61,26 @@ end
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
 #  raise NotImplementedError
-  x = 0
-  smallest_value = array[x]
-  while x < length
-    if smallest_value > array[x]
-      smallest_value = array[x]
+  i = 0
+  smallest = array[0]
+  until i == length
+    if array[i] < smallest
+      smallest = array[i]
     end
-    x += 1
+    i += 1
   end
-  smallest_value
+  return smallest
 end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
   #raise NotImplementedError
+  i = 0
+  until i == length/2
+    temp_array = array[i]
+    array[i] = array[length - 1 - i]
+    i -= 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
