@@ -1,8 +1,12 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
+require 'minitest/skip_dsl'
+require 'minitest/pride'
+
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
 
+require 'pry'
 describe "restricted array" do
   it "length method" do
     size = 5
