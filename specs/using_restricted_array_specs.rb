@@ -52,7 +52,6 @@ describe "restricted array" do
   end
 
   it "find largest in unsorted array" do
-
     size = 17
     my_integer_array = RestrictedArray.new(size)
 
@@ -74,7 +73,7 @@ describe "restricted array" do
   end
 
   it "find smallest in unsorted array" do
-    
+
     size = 12
     my_integer_array = RestrictedArray.new(size)
 
