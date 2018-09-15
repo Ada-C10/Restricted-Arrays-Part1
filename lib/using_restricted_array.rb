@@ -39,7 +39,7 @@ def search(array, length, value_to_find)
     if array[i] == value_to_find
       return true
     else
-        i += 1
+      i += 1
     end
   end
 
@@ -91,7 +91,7 @@ def reverse(array, length)
 
   i = 0
   j = length - 1
-  
+
   while i < j
     temp = array[j]
     array[j] = array[i]
@@ -109,22 +109,14 @@ def binary_search(array, length, value_to_find)
   high = length - 1
 
   while low < high
-    mid = (low + high)/2
-    if array[mid] == value_to_find
-      return true
-    elsif array[mid] > value_to_find
-      high = mid - 1
-    elsif array[mid] < value_to_find
-      low = mid + 1
-    end
+    mid = (low + high) / 2
+
+    return true if array[mid] == value_to_find
+
+    array[mid] > value_to_find ? high = mid - 1 : low = mid + 1
   end
 
-  if array[low] == value_to_find
-    return true
-  else
-    return false
-  end
-  # raise NotImplementedError
+  array[low] == value_to_find
 end
 
 # Helper method provided to sort the array in ascending order
