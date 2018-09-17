@@ -14,7 +14,7 @@ describe "restricted array" do
     my_integer_array_length.must_equal size
   end
 
-  xit "linear search method - value exists in the middle, in the array" do
+  it "linear search method - value exists in the middle, in the array" do
     size = 9
     my_integer_array = RestrictedArray.new(size)
     value_to_find = 120

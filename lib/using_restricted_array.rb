@@ -10,7 +10,28 @@ require 'pry'
 # 2. Get the value at a given index using `array[index]` format.
 # 3. Update the value at a given index using `array[index]` format.
 # None of the other methods available in the Ruby Array class are available in the RestrictedArray class.
-#
+
+class RestrictedArray
+  # creates a restricted array of default size i.e. 20 or of size passed
+  def initialize(*args)
+    if args.size == 0 # no size argument passed, assume 20
+      @array_size = 1 + rand(20)
+    elsif args.size == 1 # create array of size passed
+      @array_size = args[0]
+    else # more than one argument passed - throw exception
+      raise ArgumentError.new("More than 1 arguments passed. Expected 0 or 1 argument.")
+    end
+
+    # Composition used instead of Inheritance. Other methods of Array class will
+    # not be accessible by consumers of RestrictedArray. Encapsulation allows us
+    # to change internal workings later, without impacting other consumers of
+    # this class.
+    @internal_array = Array.new(@array_size){ |index| index + rand(1..200)}
+  end
+end
+
+my_integer_array = RestrictedArray.new(9)
+
 # ## Exercise
 # Implement the methods in using_restricted_array.rb. Methods to implement are:
 # - *print_array* - which prints each integer value separated by space on the same line
@@ -33,6 +54,12 @@ def length(array)
   return i
 end
 
+# Time Complexity
+# O(n) - goes through entire array
+
+# Space Complexity
+# O(1) - Always returns one element regardless of size of input
+
 # Prints each integer values in the array
 def print_array(array)
   # Setting iterator to start at 0
@@ -45,6 +72,13 @@ def print_array(array)
     i += 1
   end
 end
+
+# Time Complexity
+# O(n) - Goes through entire array
+
+# Space Complexity
+# Would it be O(1)? Doesn't seem like memory is being used as we're just printing
+# and we only have variable i
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
@@ -59,6 +93,12 @@ def search(array, length, value_to_find)
     i += 1
   end
 end
+
+# Time Complexity
+# O(n) - Has to go through entire array
+
+# Space Complexity
+# Would it be O(1)? The only element being created is i and it returns a boolean value regardless of size.
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
@@ -83,6 +123,12 @@ def find_largest(array, length)
   return max
 end
 
+# Time Complexity
+# O(n) - Checking entire array
+
+# Space Complexity
+# We create i and max no matter the size of the input
+# Would it be O(1)?
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
@@ -106,6 +152,12 @@ def find_smallest(array, length)
   end
   return min
 end
+
+# Time Complexity
+# O(n)
+
+# Space Complexity
+# O(1)
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
@@ -131,9 +183,18 @@ def reverse(array, length)
     start += 1
   end
   return array
-  end
+end
 
-  p reverse([1,2,3], 3)
+  # Time Complexity
+  # Going through start to middle of array
+  # 1/2 (O)
+  # Drop the constant = O(n)?
+
+  # Space Complexity
+  # Variables created = start, array_end, temp.
+  # Same three variables no matter the length of input
+  # O(1)
+
   # Start i at 0
   # Start array_end at 1
   # Start at end of array (length - array end)
@@ -165,14 +226,13 @@ def binary_search(array, length, value_to_find)
   end
 end
 
+# Time Complexity
+# Binary search - O(log n)
 
-# Helper method provided to sort the array in ascending order
-# Implements selection sort
-# Time complexity = O(n^2) since to find the correct value to be in a given location,
-# all the remaining elements are visited. This is done for each location.
-# (nested loop of size n each)
-# Space complexity = O(1) since the additional storage needed does not depend
-#                    on input array size.
+# Space Complexity
+# We created low, high, and mid no matter the size of the input
+# O(1)?
+
 def sort(array, length)
   length.times do |index| # outer loop - n elements
     min_index = index # assume index is where the next minimally value is
@@ -191,18 +251,11 @@ def sort(array, length)
   end
 end
 
+# Time Complexity
+# Running for the length of the array O(n)
+# Then we have a while loop for index < length O(n)
+# So we have a loop of O(n) with a nested loop inside it = O(n^2)
 
-
-## Exercise
-# Implement the methods in using_restricted_array.rb. Methods to implement are:
-# - *length* - which calculates the length of the integer array and returns it.
-#              Note: The restricted_array is terminated by `nil` i.e. `array[length] = nil`
-# - *print_array* - which prints each integer value separated by space on the same line
-# - *reverse* - which reverses the values in the array in place
-# - *search* - which looks for a given integer value in the array. Returns true if found, false otherwise.
-#              Note: do not assume that the array is sorted.
-# - *binary_search* - which looks for a given integer value in the array. Returns true if found, false otherwise.
-#              Note: Assume that the array is sorted in ascending order.
-# - *find_largest* - Finds and returns the largest value element in the integer array.
-# - *find_smallest* - Finds and returns the smallest value element in the integer array.
-# ## --- END OF METHODS ---
+# Space Complexity
+# We create min_index, temp_index no matter the size of the input
+# Would it be O(1)
