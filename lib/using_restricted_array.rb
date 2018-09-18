@@ -82,17 +82,32 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-def search(array, length, value_to_find)
+def search(array, size, value_to_find)
   i = 0
-  while i < length
+  result = false
+  while i < size
+    # binding.pry
     if array[i] == value_to_find
-      return true
-    else
-      return false
+      # binding.pry
+      result = true
     end
+    # return true if array[i] == value_to_find
     i += 1
   end
+  # binding.pry
+  return result
 end
+
+size = 9
+my_integer_array = RestrictedArray.new(size)
+value_to_find = 120
+middle_index = size / 2
+my_integer_array[middle_index] = value_to_find
+
+# p search(my_integer_array, size, value_to_find)
+
+# p search(arr, arr.size, 9)
+
 
 # Time Complexity
 # O(n) - Has to go through entire array
