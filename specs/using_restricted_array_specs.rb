@@ -34,7 +34,6 @@ describe "restricted array" do
 
     search(my_integer_array, size, value_to_find).must_equal true
   end
-
   it "linear search method - value does not exist in array" do
     size = 4
     my_integer_array = RestrictedArray.new(size)

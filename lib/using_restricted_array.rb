@@ -79,17 +79,21 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  puts "before"
-  print print_array(array)
-  storage = 0
-  num = 1
-  while storage != length - num
-    array[storage] = array[length - num]
-    storage += 1
-    num += 1
+  if length == 1
+    return array
+  else
+    i = 0 # first element
+    j = length - 1 # last element
+    while i < j
+      # swap in place
+      array[i] = array[i] + array[j]
+      array[j] = array[i] - array[j]
+      array[i] = array[i] - array[j]
+      i += 1
+      j -= 1
+    end
+    puts array
   end
-  puts "after"
-  print print_array(array)
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
