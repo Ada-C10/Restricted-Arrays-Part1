@@ -99,15 +99,11 @@ def reverse(array, length)
 
   left = 0
   right = length - 1
-  # left_container = 0
 
   while (left < right)
     left_container = array[left]
     array[left] = array[right]
     array[right] = left_container
-
-    # array[left] = array[right]
-    # array[right] = array[left]
 
     left += 1
     right -= 1
