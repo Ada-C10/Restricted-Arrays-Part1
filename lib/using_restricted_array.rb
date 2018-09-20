@@ -52,8 +52,12 @@ end
 # Assumes that the array is not sorted.
 def find_largest(array, length)
 
-  max = 0
-  index = 0
+
+return nil if length <= 0
+
+
+  max = array[0]
+  index = 1
 
   while (index < length)
     if array[index] > max
@@ -70,8 +74,10 @@ end
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
 
-  index = 0
-  min = array[index]
+  return nil if length <= 0
+
+  index = 1
+  min = array[0]
 
   while (index < length)
     if array[index] < min
@@ -87,20 +93,27 @@ end
 # Reverses the values in the integer array in place
 def reverse(array, length)
 
+  # if length == 0
+  #   return array
+  # end
+
   left = 0
   right = length - 1
-  left_container = 0
+  # left_container = 0
 
   while (left < right)
     left_container = array[left]
     array[left] = array[right]
     array[right] = left_container
 
+    # array[left] = array[right]
+    # array[right] = array[left]
+
     left += 1
     right -= 1
   end
 
-  return array
+  # return array
 end
 
 
