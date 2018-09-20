@@ -31,7 +31,7 @@ end
 # Time complexity: O(n)
 def search(array, length, value_to_find)
   i = 0
-  if length == 0
+  if length <= 0
     return nil
   else
     while i < length
@@ -65,7 +65,7 @@ end
 def find_smallest(array, length)
   min = array[0]
   i = 0
-  if length == 0
+  if length <= 0
     return nil
   else
     while i < length
@@ -82,6 +82,7 @@ def reverse(array, length)
   i = 0
   j = length - 1
 
+  # return if length < 2; if length is 0 or 1, nothing to return
   if length == 0
     return nil
   elsif length == 1
@@ -94,7 +95,7 @@ def reverse(array, length)
       i += 1
       j -= 1
     end
-    return array
+    return array #can just use 'return' since reverse in place
   end
 end
 
@@ -102,6 +103,8 @@ end
 # Returns true if found, false otherwise.
 # Time complexity: O(logn)
 def binary_search(array, length, value_to_find)
+  return false if length == 0
+
   high = length - 1
   low = 0
   while low <= high do
