@@ -93,9 +93,9 @@ end
 # Reverses the values in the integer array in place
 def reverse(array, length)
 
-  # if length == 0
-  #   return array
-  # end
+  if length < 2
+    return array
+  end
 
   left = 0
   right = length - 1
