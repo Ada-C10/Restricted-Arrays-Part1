@@ -96,7 +96,19 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  i = 0
+  e = length - 1
+  temp = ""
+  temp2 = ""
+  while i < e do
+    temp = array[i]
+    temp2 = array[e]
+    array[e] = temp
+    array[i] = temp2
+    i += 1
+    e -= 1
+  end
+  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
