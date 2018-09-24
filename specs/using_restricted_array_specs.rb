@@ -65,7 +65,7 @@ describe "restricted array" do
 
     largest.must_equal my_integer_array[size - 1]
   end
-
+  #
   it "find smallest in unsorted array" do
     size = 12
     my_integer_array = RestrictedArray.new(size)
