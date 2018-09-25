@@ -149,15 +149,16 @@ def binary_search(array, length, value_to_find)
   end
 
   while low < high
+
     if array[middle] == value_to_find
       return true
     elsif array[middle] < value_to_find
       low = middle + 1
-      middle = (low + high) / 2
     else
       high = middle - 1
-      middle = (low + high) / 2
     end
+
+    middle = (low + high) / 2
   end
   return false
 end
