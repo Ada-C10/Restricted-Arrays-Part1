@@ -144,6 +144,10 @@ def binary_search(array, length, value_to_find)
   low = 0
   high = length - 1
 
+  if value_to_find.class == nil
+    return false
+  end
+
   while low < high
     if array[middle] == value_to_find
       return true
