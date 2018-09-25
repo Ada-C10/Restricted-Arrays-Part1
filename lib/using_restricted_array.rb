@@ -1,4 +1,5 @@
 require_relative 'restricted_array.rb'
+require 'pry'
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -7,41 +8,156 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
-  raise NotImplementedError
+
+  index = 0
+  while array[index] != nil
+    index += 1
+  end
+
+  return index
 end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+
+  index = 0
+  statement = ""
+  while array[index] != nil
+    statement += "#{array[index]}\n"
+    index += 1
+  end
+
+  return statement
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+
+  index = 0
+
+  while (index < length)
+    if array[index] == value_to_find
+      return true
+    else
+      index += 1
+    end
+  end
+
+  return false
+
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+
+
+return nil if length <= 0
+
+
+  max = array[0]
+  index = 1
+
+  while (index < length)
+    if array[index] > max
+      max = array[index]
+    end
+      index += 1
+  end
+
+  return max
+
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+
+  return nil if length <= 0
+
+  index = 1
+  min = array[0]
+
+  while (index < length)
+    if array[index] < min
+      min = array[index]
+    end
+      index += 1
+  end
+
+  return min
+
 end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+
+  if length < 2
+    return array
+  end
+
+  left = 0
+  right = length - 1
+
+  while (left < right)
+    left_container = array[left]
+    array[left] = array[right]
+    array[right] = left_container
+
+    left += 1
+    right -= 1
+  end
+
+  # return array
 end
 
-# For an array sorted in ascending order, searches for 'value_to_find'.
-# Returns true if found, false otherwise.
+
+#bad binary search
+# def binary_search(array, length, value_to_find)
+#
+#   middle = length / 2
+#   low = middle - 1
+#   high = middle + 1
+#
+#   until (low == length - 1 || high == 0)
+#     if value_to_find.class == nil
+#       return false
+#     elsif array[middle] == value_to_find || array[low] == value_to_find || array[high] == value_to_find
+#       return true
+#     elsif array[middle] < value_to_find
+#       middle += 2
+#       low = high
+#       high += 2
+#     elsif array[middle] > value_to_find
+#       middle -= 2
+#       high = low
+#       low -=2
+#     end
+#   end
+#   return false
+# end
+
+#properbinary search
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  middle = length / 2
+  low = 0
+  high = length - 1
+
+  while low <= high
+
+    if array[middle] == value_to_find
+      return true
+    elsif array[middle] < value_to_find
+      low = middle + 1
+    else
+      high = middle - 1
+    end
+
+    middle = (low + high) / 2
+  end
+
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
