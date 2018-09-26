@@ -85,7 +85,6 @@ end
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
   array = sort(array, length)
-  p array
   low = 0
   high = length-1
   mid = (high - low) / 2
