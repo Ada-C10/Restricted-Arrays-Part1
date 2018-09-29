@@ -17,6 +17,9 @@ def length(array)
   return i
 end
 
+# time: O(n) - goes through the loop n times, the length of the array
+# space: O(1) - storage stays the same the length or size of the array
+
 # Prints each integer values in the array
 def print_array(array)
   i = 0
@@ -26,6 +29,9 @@ def print_array(array)
   end
   print "#{array[i]}"
 end
+
+# time: O(n) - goes through the loop n times, the length of the array - 1
+# space: O(1) - storage stays the same the length or size of the array
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
@@ -41,6 +47,9 @@ def search(array, length, value_to_find)
   return false
 end
 
+# time: O(n) - goes through the loop n times, until it reaches the value found
+# space: O(1) - the array is unchanged
+
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
@@ -55,6 +64,9 @@ def find_largest(array, length)
   return largest
 end
 
+# time: O(n) - goes through the loop n times, until it reaches the value found
+# space: O(1) - the array is unchanged
+
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
@@ -68,6 +80,9 @@ def find_smallest(array, length)
   end
   return smallest
 end
+
+# time: O(n) - goes through the loop n times, until it reaches the value found
+# space: O(1) - the array is unchanged
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
@@ -84,8 +99,10 @@ def reverse(array, length)
     front_index += 1
     back_index -= 1
   end
-
 end
+
+# time: O(n) - goes through the loop n times, the array length
+# space: O(1) - the array size is same each time it goes through the while loop
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
@@ -105,9 +122,11 @@ def binary_search(array, length, value_to_find)
       low = mid + 1
     end
   end
-
   return array[low] == value_to_find ? true : false
 end
+
+# time: best case: O(1) - if the first one, or log(n)
+# space: O(1) - the space taken is the same for any number of elements in the array
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
