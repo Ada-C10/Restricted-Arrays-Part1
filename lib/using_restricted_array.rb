@@ -90,7 +90,23 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  return false if length == 0
+
+  low = 0
+  high = length - 1
+
+  while low < high
+    mid = (high + low)/2
+    if array[mid] == value_to_find
+      return true # value found
+    elsif array[mid] > value_to_find
+      high = mid - 1 # value is in the upper half
+    elsif array[mid] < value_to_find
+      low = mid + 1 # value is in the lower half
+    end
+  end
+
+  return array[low] == value_to_find ? true : false
 end
 
 # Helper method provided to sort the array in ascending order
